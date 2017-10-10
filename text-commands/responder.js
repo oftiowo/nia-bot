@@ -13,7 +13,9 @@ exports.respond = function (message) {
         var args = message.content.substring(prefix.length).toLowerCase().split('[ ]');
         var cmd = args[0];
         args = args.slice(1);
-        textCommands[cmd].apply(message, args);
+        if (typeof textCommands[cmd] === 'function') {
+            textCommands[cmd](message, args);
+        }
     }
 }
 
