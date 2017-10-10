@@ -1,4 +1,5 @@
 const Discord = require('discord.js');
+var moreCommands = require('./more-commands.json');
 
 exports.meme = function (message, args) {
 

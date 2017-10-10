@@ -1,12 +1,13 @@
 const helpCommands = require('./help-commands.js');
 const infoCommands = require('./info-commands.js');
 const memeCommands = require('./meme-commands.js');
-const serverMemeCommands = require('./server-meme-commands.js');
 const musicCommands = require('./music-commands.js');
 const miscCommands = require('./misc-commands.js');
+const moarCowmands = require('./more-commands.js')
+const someMoarCowmands = require('./more-commands.json');
 
 var prefix = '';
-var textCommands = {};
+var textCommands = exports.textCommands = {};
 
 exports.respond = function (message) {
     if (message.content.substring(0, prefix.length) == prefix) {
@@ -34,11 +35,6 @@ textCommands['xd'] = memeCommands.xd;
 textCommands['gweentea'] = memeCommands.gweenTea;
 textCommands['cawfee'] = memeCommands.cawfee;
 
-// Server meme commands.
-textCommands['meme'] = serverMemeCommands.meme;
-textCommands['addmeme'] = serverMemeCommands.addMeme;
-textCommands['removememe'] = serverMemeCommands.removeMeme;
-
 // Music commands.
 textCommands['join'] = musicCommands.join;
 textCommands['leave'] = musicCommands.leave;
@@ -54,3 +50,7 @@ textCommands['moe'] = musicCommands.moe;
 textCommands['ping'] = miscCommands.ping;
 
 // Some moar cowmands.
+textCommands['meme'] = moarCowmands.meme;
+textCommands['addmeme'] = moarCowmands.addMeme;
+textCommands['removememe'] = moarCowmands.removeMeme;
+
