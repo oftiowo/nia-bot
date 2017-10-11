@@ -11,7 +11,7 @@ var textCommands = exports.textCommands = {};
 
 exports.respond = function (message) {
     if (message.content.substring(0, prefix.length) == prefix) {
-        var args = message.content.substring(prefix.length).toLowerCase().split('[ ]');
+        var args = message.content.substring(prefix.length).toLowerCase().split(' ');
         var cmd = args[0];
         args = args.slice(1);
         if (typeof textCommands[cmd] === 'function') {
