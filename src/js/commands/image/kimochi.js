@@ -1,4 +1,5 @@
-const ImageResponse = require(`../../structures/image-response.js`);
+require(`rootpath`)();
+const ImageResponse = require(`src/js/structures/image-response.js`);
 class Kimochi extends ImageResponse {
 	constructor(text) {
 		super(text);

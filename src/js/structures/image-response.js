@@ -1,5 +1,6 @@
-const MessageSender = require(`../modules/message-sender/message-sender.js`);
-const Command = require(`./command.js`);
+require(`rootpath`)();
+const MessageSender = require(`src/js/modules/message-sender/message-sender.js`);
+const Command = require(`src/js/structures/command.js`);
 class ImageResponse extends Command {
 	constructor(text) {
 		super(text);

@@ -1,4 +1,5 @@
-const MessageParser = require(`../parser/message-parser`);
+require(`rootpath`)();
+const MessageParser = require(`src/js/modules/parser/message-parser`);
 class MessageListener {
 	constructor() {
 		this.prefix = `nia `;

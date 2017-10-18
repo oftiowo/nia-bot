@@ -1,5 +1,6 @@
+require(`rootpath`)();
 const MessageSender = require(`../modules/message-sender/message-sender.js`);
-const Command = require(`./command.js`);
+const Command = require(`src/js/structures/command.js`);
 class TextResponse extends Command {
 	constructor(text) {
 		super(text);

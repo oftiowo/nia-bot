@@ -1,5 +1,6 @@
+require(`rootpath`)();
 const Discord = require(`discord.js`);
-const Command = require(`../../structures/command.js`);
+const Command = require(`src/js/structures/command.js`);
 class ServerAvatar extends Command {
 	constructor(text) {
 		super(text);

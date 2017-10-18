@@ -1,4 +1,5 @@
-const TextResponse = require(`../../structures/text-response.js`);
+require(`rootpath`)();
+const TextResponse = require(`src/js/structures/text-response.js`);
 class Invite extends TextResponse {
 	constructor(text) {
 		super(text);
