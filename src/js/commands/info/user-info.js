@@ -19,7 +19,7 @@ class UserInfo extends Command {
 				guildMember = msg.guild.members.get(id);
 				user = guildMember.user;
 			} catch (error) {
-				msg.channel.send(this.text.generic.noUserFound);
+				msg.channel.send(this.text[`generic.userNotFound`]);
 				return;
 			}
 		}

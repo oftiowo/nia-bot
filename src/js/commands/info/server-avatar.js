@@ -1,5 +1,5 @@
 require(`rootpath`)();
-const Discord = require(`discord.js`);
+const MessageSender = require(`src/js/modules/message-sender/message-sender.js`);
 const Command = require(`src/js/structures/command.js`);
 class ServerAvatar extends Command {
 	constructor(text) {
@@ -8,8 +8,8 @@ class ServerAvatar extends Command {
 		this.category = `info`;
 	}
 
-	apply(msg) {
-		
+	apply(msg, desc) {
+		MessageSender.sendImage(msg, msg.guild.iconURL);
 	}
 }
 module.exports = ServerAvatar;

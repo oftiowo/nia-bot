@@ -3,7 +3,7 @@ const MessageParser = require(`src/js/modules/parser/message-parser`);
 class CommandManager {
 	constructor() {
 		this.prefix = `nia `;
-		this.text = require(`../../../resources/lang/en/lang-en.json`);
+		this.setLang(`en`);
 
 		this.commands = {};
 		const glob = require(`glob`);
@@ -22,6 +22,12 @@ class CommandManager {
 				this.commands[desc.command].apply(msg, desc);
 			}
 		}
+	}
+
+	setLang(lang) {
+		let text = require(`src/resources/lang/${lang}/lang-${lang}.json`);
+		if (text === undefined) throw new Error(`${lang} language is not supported.`);
+		this.text = text;
 	}
 }
 module.exports = CommandManager;

@@ -7,22 +7,27 @@ class MessageParser {
 		let desc = {};
 		desc.options = {};
 
-		let tokens = msg.content.substring(prefix.length).toLowerCase().split(` `, 2);
-		desc.command = tokens[0];
+		let [cmd, argAndOpts] = msg.content.substring(prefix.length).toLowerCase().split(` `, 2);
+		desc.command = cmd;
 
-		if (tokens[1] !== undefined) {
-			desc.argument = tokens[1].substring(0, tokens[1].search(` --`));
-			
-			tokens = tokens[1].substring(tokens[1].search(` --`) + 1).split(` `);
-			for (let i = 1; i < tokens.length; i++) {
-				let token = tokens[i];
-				if (token.startsWith(`--`)) {
-					var pendingOpt = true;
-					var optKey = token.substring(2);
-				} else if (pendingOpt) {
-					desc.options[optKey] = token;
-					pendingOpt = false;
-				}
+		if (argAndOpts === undefined) return desc;
+
+		let optStartIndex = argAndOpts.search(` --`);
+		if (optStartIndex == -1) {
+			desc.argument = argAndOpts;
+			return desc;
+		}
+
+		desc.argument = argAndOpts.substring(0, optStartIndex);
+		let opts = argAndOpts.substring(optStartIndex + 1).split(` `);
+		for (let i = 1; i < opts.length; i++) {
+			let opt = opts[i];
+			if (opt.startsWith(`--`)) {
+				var pendingOptValue = true;
+				var optKey = opt.substring(2);
+			} else if (pendingOptValue) {
+				desc.options[optKey] = opt;
+				pendingOptValue = false;
 			}
 		}
 		
