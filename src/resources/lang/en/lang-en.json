@@ -1,0 +1,6 @@
+{
+	"generic.noUserFound": ":x: No user found",
+
+	"nia.ping": "Pong!",
+	"nia.invite": "https://discordapp.com/oauth2/authorize?client_id=367282232731238400&scope=bot&permissions=2134240503&response_type=code"
+}

@@ -1,5 +1,8 @@
 {
-    "name": "nia-bot",
-    "version": "1.0.0",
-    "main": "client.js"
+	"name": "nia-bot",
+	"version": "1.0.0",
+	"main": "src/js/main.js",
+	"devDependencies": {
+		"eslint": "^4.9.0"
+	}
 }
