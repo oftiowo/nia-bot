@@ -16,7 +16,7 @@ class UserInfo extends Command {
 		} else {
 			let rawId = argument.split(` `, 1)[0];
 			try {
-				var id = rawId.substring(3, rawId.length - 1);
+				var id = rawId.substring(2, rawId.length - 1);
 				guildMember = message.guild.members.get(id);
 				user = guildMember.user;
 			} catch (error) {
@@ -26,10 +26,10 @@ class UserInfo extends Command {
 		}
 
 		messageSender.sendChannel({ embed: new Discord.RichEmbed()
-			.setAuthor(user.tag + ` aka ` + msg.guild.member(user).nickname)
+			.setAuthor(user.tag + ` aka ` + message.guild.member(user).nickname)
 			.setThumbnail(user.avatarURL)
 			.addField(`Joined Discord at`, user.createdAt.toDateString())
-			.addField(`Joined ` + msg.guild.name + ` at`, guildMember.joinedAt.toDateString()) 
+			.addField(`Joined ` + message.guild.name + ` at`, guildMember.joinedAt.toDateString()) 
 		});
 	}
 }

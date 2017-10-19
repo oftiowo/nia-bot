@@ -15,18 +15,18 @@ class UserAvatar extends Command {
 		} else {
 			let rawId = argument.split(` `, 1)[0];
 			try {
-				var id = rawId.substring(3, rawId.length - 1);
+				var id = rawId.substring(2, rawId.length - 1);
 				guildMember = message.guild.members.get(id);
 				user = guildMember.user;
 			} catch (error) {
-				message.channel.send(this.text.generic.noUserFound);
+				message.channel.send(this.text[`generic.userNotFound`]);
 				return;
 			}
 		}
 
 		messageSender.sendChannel({ embed: {
 			author: {
-				name: user.name,
+				name: user.username,
 				icon_url: user.avatarURL
 			},
 			image: {
