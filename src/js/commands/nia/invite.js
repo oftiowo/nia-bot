@@ -1,5 +1,6 @@
 require(`rootpath`)();
 const TextResponse = require(`src/js/structures/text-response.js`);
+
 class Invite extends TextResponse {
 	constructor(text) {
 		super(text);
@@ -8,4 +9,5 @@ class Invite extends TextResponse {
 		this.responsePath = `nia.invite`;
 	}
 }
+
 module.exports = Invite;

@@ -8,7 +8,7 @@ class ServerInfo extends Command {
 		this.category = `info`;
 	}
 
-	apply(msg) {
+	apply({ message, messageSender }) {
 		
 	}
 }

@@ -1,8 +1,13 @@
 require(`rootpath`)();
-const MessageParser = require(`src/js/modules/parser/message-parser`);
+const MessageParser = require(`src/js/modules/parser/message-parser.js`);
+const MessageSender = require(`src/js/modules/message-sender/message-sender.js`);
+const ChannelFilter = require(`src/js/modules/command-manager/channel-filter.js`);
+
 class CommandManager {
 	constructor() {
-		this.prefix = `nia `;
+		this.messageParser = new MessageParser();
+		this.messageSender = new MessageSender();
+		this.channelFilter = new ChannelFilter();
 		this.setLang(`en`);
 
 		this.commands = {};
@@ -15,11 +20,16 @@ class CommandManager {
 		});
 	}
 
-	handle(msg) {
-		if (MessageParser.messageHasPrefix(msg, this.prefix)) {
-			let desc = MessageParser.parse(msg, this.prefix);
+	handle(message) {
+		if (!this.channelFilter.channelIsAllowed(message.channel)) return;
+
+		if (MessageParser.messageHasPrefix(message)) {
+			let desc = MessageParser.parse(message);
+			desc.messageParser = this.messageParser;
+			desc.messageSender = this.messageSender;
+			desc.channelFilter = this.channelFilter;
 			if (this.commands[desc.command] !== undefined) {
-				this.commands[desc.command].apply(msg, desc);
+				this.commands[desc.command].apply(desc);
 			}
 		}
 	}
@@ -30,4 +40,5 @@ class CommandManager {
 		this.text = text;
 	}
 }
+
 module.exports = CommandManager;

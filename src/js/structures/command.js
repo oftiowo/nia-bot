@@ -3,7 +3,7 @@ class Command {
 		this.text = text;
 	}
 
-	apply (msg, desc) {
+	apply ({ message, command, argument, options, messageSender, messageParser, channelFitler}) {
 	}
 }
 module.exports = Command;

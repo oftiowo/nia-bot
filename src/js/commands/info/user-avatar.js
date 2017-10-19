@@ -1,6 +1,6 @@
 require(`rootpath`)();
-const Discord = require(`discord.js`);
 const Command = require(`src/js/structures/command.js`);
+
 class UserAvatar extends Command {
 	constructor(text) {
 		super(text);
@@ -8,26 +8,32 @@ class UserAvatar extends Command {
 		this.category = `info`;
 	}
 
-	apply(msg, desc) {
-		if (desc.argument === undefined) {
-			var user = msg.author;
-			var guildMember = msg.guild.member(user);
+	apply({ message, argument, messageSender }) {
+		if (argument === undefined) {
+			var user = message.author;
+			var guildMember = message.guild.member(user);
 		} else {
-			let rawId = desc.argument.split(` `, 1)[0];
+			let rawId = argument.split(` `, 1)[0];
 			try {
 				var id = rawId.substring(3, rawId.length - 1);
-				guildMember = msg.guild.members.get(id);
+				guildMember = message.guild.members.get(id);
 				user = guildMember.user;
 			} catch (error) {
-				msg.channel.send(this.text.generic.noUserFound);
+				message.channel.send(this.text.generic.noUserFound);
 				return;
 			}
 		}
 
-		msg.channel.send({ embed: new Discord.RichEmbed()
-			.setAuthor(user.name)
-			.setImage(user.avatarURL) 
-		});
+		messageSender.sendChannel({ embed: {
+			author: {
+				name: user.name,
+				icon_url: user.avatarURL
+			},
+			image: {
+				url: user.avatarURL
+			}
+		}});
 	}
 }
+
 module.exports = UserAvatar;

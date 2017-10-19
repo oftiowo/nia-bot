@@ -1,13 +1,17 @@
 class MessageParser {
-	static messageHasPrefix(msg, prefix) {
-		return msg.content.startsWith(prefix);
+	constructor() {
+		this.prefix = `nia `;
 	}
 
-	static parse(msg, prefix) {
+	messageHasPrefix(message) {
+		return message.content.startsWith(this.prefix);
+	}
+
+	parse(message) {
 		let desc = {};
 		desc.options = {};
 
-		let [cmd, argAndOpts] = msg.content.substring(prefix.length).toLowerCase().split(` `, 2);
+		let [cmd, argAndOpts] = message.content.substring(this.prefix.length).toLowerCase().split(` `, 2);
 		desc.command = cmd;
 
 		if (argAndOpts === undefined) return desc;
@@ -34,4 +38,5 @@ class MessageParser {
 		return desc;
 	}
 }
+
 module.exports = MessageParser;

@@ -1,11 +1,11 @@
-const Discord = require(`discord.js`);
 class MessageSender {
-	static sendChannelMessage(msg, text) {
-		msg.channel.send(text);
+	sendChannel(content, options) {
+		this.channel.send(content, options);
 	}
 
-	static sendImage(msg, image) {
-		msg.channel.send(``, new Discord.Attachment(this.image));
+	sendDm() {
+		// TODO
 	}
 }
+
 module.exports = MessageSender;

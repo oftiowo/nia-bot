@@ -1,5 +1,6 @@
 {
 	"generic.userNotFound": ":x: User not found",
+	"generic.noArgumentsPassed": ":x: No arguments were passed",
 
 	"nia.ping": "Pong!",
 	"nia.invite": "https://discordapp.com/oauth2/authorize?client_id=367282232731238400&scope=bot&permissions=2134240503&response_type=code",
