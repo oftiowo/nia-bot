@@ -10,4 +10,5 @@ class ImageResponse extends Command {
 		messageSender.sendChannel({ file: this.image });
 	}
 }
+
 module.exports = ImageResponse;

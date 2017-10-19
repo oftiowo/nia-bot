@@ -9,6 +9,7 @@ class MessageParser {
 
 	parse(message) {
 		let desc = {};
+		desc.message = message;
 		desc.options = {};
 
 		let [cmd, argAndOpts] = message.content.substring(this.prefix.length).toLowerCase().split(` `, 2);

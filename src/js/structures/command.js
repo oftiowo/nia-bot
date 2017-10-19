@@ -6,4 +6,5 @@ class Command {
 	apply ({ message, command, argument, options, messageSender, messageParser, channelFitler}) {
 	}
 }
+
 module.exports = Command;

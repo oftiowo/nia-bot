@@ -10,4 +10,5 @@ class TextResponse extends Command {
 		messageSender.sendChannel(this.text[this.responsePath]);
 	}
 }
+
 module.exports = TextResponse;
