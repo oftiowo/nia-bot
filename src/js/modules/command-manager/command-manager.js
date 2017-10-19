@@ -10,27 +10,36 @@ class CommandManager {
 		this.channelFilter = new ChannelFilter();
 		this.setLang(`en`);
 
-		this.commands = {};
+		this.prefixCommands = {};
+		this.noPrefixCommands = {};
 		const glob = require(`glob`);
 		const path = require(`path`);
 		glob.sync(`src/js/commands/**/*.js`).forEach(file => {
 			let Command = require(path.resolve(file));
 			let command = new Command(this.text);
-			this.commands[command.command] = command;
+
+			if (command.usedWithPrefix) this.prefixCommands[command.command] = command; 
+			if (command.usedWithoutPrefix) this.noPrefixCommands[command.command] = command; 
 		});
 	}
 
 	handle(message) {
 		if (!this.channelFilter.channelIsAllowed(message.channel)) return;
 
+		let desc = this.messageParser.parse(message);
+		desc.messageParser = this.messageParser;
+		desc.messageSender = this.messageSender;
+		desc.channelFilter = this.channelFilter;
+
+		this.messageSender.channel = message.channel;
+
 		if (this.messageParser.messageHasPrefix(message)) {
-			let desc = this.messageParser.parse(message);
-			desc.messageParser = this.messageParser;
-			desc.messageSender = this.messageSender;
-			desc.channelFilter = this.channelFilter;
-			if (this.commands[desc.command] !== undefined) {
-				this.messageSender.channel = message.channel;
-				this.commands[desc.command].apply(desc);
+			if (this.prefixCommands[desc.command] !== undefined) {
+				this.prefixCommands[desc.command].apply(desc);
+			}
+		} else {
+			if (this.noPrefixCommands[desc.command] !== undefined) {
+				this.noPrefixCommands[desc.command].apply(desc);
 			}
 		}
 	}

@@ -12,14 +12,16 @@ class MessageParser {
 		desc.message = message;
 		desc.options = {};
 
-		let [cmd, argAndOpts] = message.content.substring(this.prefix.length).toLowerCase().split(` `, 2);
-		desc.command = cmd;
-
+		let raw = message.content.substring(this.prefix.length).toLowerCase();
+		desc.command = raw.split(` `, 1)[0];
+		let argAndOpts = raw.substring(raw.indexOf(` `) + 1);
+		
 		if (argAndOpts === undefined) return desc;
 
 		let optStartIndex = argAndOpts.search(` --`);
 		if (optStartIndex == -1) {
 			desc.argument = argAndOpts;
+			console.log(argAndOpts);
 			return desc;
 		}
 
