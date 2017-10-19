@@ -23,12 +23,13 @@ class CommandManager {
 	handle(message) {
 		if (!this.channelFilter.channelIsAllowed(message.channel)) return;
 
-		if (MessageParser.messageHasPrefix(message)) {
-			let desc = MessageParser.parse(message);
+		if (this.messageParser.messageHasPrefix(message)) {
+			let desc = this.messageParser.parse(message);
 			desc.messageParser = this.messageParser;
 			desc.messageSender = this.messageSender;
 			desc.channelFilter = this.channelFilter;
 			if (this.commands[desc.command] !== undefined) {
+				this.messageSender.channel = message.channel;
 				this.commands[desc.command].apply(desc);
 			}
 		}
