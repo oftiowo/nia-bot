@@ -1,7 +1,7 @@
 require(`rootpath`)();
-const Command = require(`src/js/structures/command.js`);
+const Say = require(`src/js/commands/fun/say.js`);
 
-class Sayd extends Command {
+class Sayd extends Say {
 	constructor(any) {
 		super(any);
 		this.command = `sayd`;
@@ -9,7 +9,7 @@ class Sayd extends Command {
 	}
 	
 	apply({ message, argument, messageSender }) {
-		messageSender.sendChannel(argument);
+		super.apply({ message, argument, messageSender });
 		message.delete();
 	}
 }
