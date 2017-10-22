@@ -9,14 +9,28 @@ class Esay extends Command {
 	}
 
 	apply({ argument, messageSender }) {
-		messageSender.sendChannel(argument
-			.replace(/(\d)|([a-z])|(\W)/gi, (match, digit, letter, symbol) => {
+		let content = argument.replace(/(^[^:]+)|(((?!:).)*[^\w:]((?!:).)*(?=:))|([^:]+$)/gi, (match) => {
+			return match.replace(/sos| be |^be | be$|^be$|waifu/gi, (match) => {
+				switch (match) {
+				case `sos`:	return `:sos:`;
+				case `be`:	return `:b:`;
+				case ` be`:	return ` :b:`;
+				case `be `:	return `:b: `;
+				case ` be `:	return ` :b: `;
+				case `waifu`:	return `:put_litter_in_its_place:`;
+				}
+				return match;
+			});
+		});
+
+		messageSender.sendChannel(content.replace(/(^[^:]+)|(((?!:).)*[^\w:]((?!:).)*(?=:))|([^:]+$)/gi, (match) => {
+			return match.replace(/(\d)|([a-z])|(\W)/gi, (match, digit, letter, symbol) => {
 				if (digit) {
 					switch (digit) {
 					case `0`:	return `:zero:`;
 					case `1`:	return `:one:`;
 					case `2`:	return `:two:`;
-					case `3`:	return `:thre:`;
+					case `3`:	return `:three:`;
 					case `4`:	return `:four:`;
 					case `5`:	return `:five:`;
 					case `6`:	return `:six:`;
@@ -30,11 +44,12 @@ class Esay extends Command {
 					switch (symbol) {
 					case `%`:	return `:wheelchair:`;
 					case `*`:	return `:anger:`;
-					default: 	return symbol;
+					case `'`:	return ``;
 					}
 				}
-			})
-		);
+				return match;
+			});
+		}));
 	}
 }
 
