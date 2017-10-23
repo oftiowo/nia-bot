@@ -1,0 +1,20 @@
+{ 
+	"embed": {
+		"author": {
+			"name": "${user.tag} aka ${guildMember.nickname}"
+		},
+		"thumbnail": {
+			"url": "${user.avatarURL}"
+		},
+		"fields": [
+			{
+				"name": "%{info.uinfo.joinedDiscordAt}",
+				"value": "${user.createdAt}"
+			},
+			{
+				"name": "%{info.uinfo.joinedGuildAt}",
+				"value": "${guildMember.joinedAt}"
+			}
+		]
+	}
+}

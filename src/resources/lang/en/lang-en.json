@@ -1,0 +1,19 @@
+{
+	"generic.error": ":x: Error occurred during applying of the command",
+	"generic.noArgumentsPassed": ":x: No arguments were passed",
+	"generic.userNotFound": ":x: User not found",
+	"generic.wrongPath": ":x: Wrong text path",
+
+	"info.uinfo.joinedDiscordAt": "Joined Discord at",
+	"info.uinfo.joinedGuildAt": "Joined ${guild.name} at",
+
+	"music.join.success": ":white_check_mark: Joined `${channel.name}`",
+	"music.join.fail": ":x: Couldn't join `${channel.name}`",	
+	"music.leave.success": ":white_check_mark: Left `${channel.name}`",
+	"music.leave.fail": ":x: Couldn't leave",
+
+	"nia.ping": "Pong!",
+	"nia.invite": "Here's the link:\n${inviteURL}",
+	"nia.setlang.success": ":white_check_mark: Changed the languag to `${lang}`",
+	"nia.setlang.fail": ":x: Couldn't change the language to `${lang}`"
+}
