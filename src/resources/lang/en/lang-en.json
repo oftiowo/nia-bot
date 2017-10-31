@@ -1,19 +1,28 @@
 {
-	"generic.error": ":x: Error occurred during applying of the command",
-	"generic.noArgumentsPassed": ":x: No arguments were passed",
+	"generic.error": ":x: Error occurred during execution of the command",
+	"generic.lel": "lel",
+	"generic.noArgumentsProvided": ":x: No arguments were provided",
+	"generic.noMusicStream": ":x: There is no actual music stream",
+	"generic.noSuchVoice": ":x: Couldn't find voice channel `${channel_name}`",
 	"generic.userNotFound": ":x: User not found",
-	"generic.wrongPath": ":x: Wrong text path",
+	"generic.userNotInVoice": ":x: Couldn't join your voice channel",
+	"generic.noVoice": ":x: No active voice channel",
+	"generic.wrongPath": ":anger: Wrong text path `${path}` :wheelchair: :arrow_right: ofti",
 
 	"info.uinfo.joinedDiscordAt": "Joined Discord at",
-	"info.uinfo.joinedGuildAt": "Joined ${guild.name} at",
+	"info.uinfo.joinedGuildAt": "Joined ${guild_name} at",
 
-	"music.join.success": ":white_check_mark: Joined `${channel.name}`",
-	"music.join.fail": ":x: Couldn't join `${channel.name}`",	
-	"music.leave.success": ":white_check_mark: Left `${channel.name}`",
+	"music.join.success": ":white_check_mark: Joined `${channel_name}`",
+	"music.join.fail": ":x: Couldn't join `${channel_name}`",	
+	"music.join.fail.userNotInVoice": ":x: Couldn't join your voice channel",
+	"music.join.fail.noSuchVoice": ":x: Couldn't find voice channel `${channel_name}`",
+	"music.leave.success": ":white_check_mark: Left `${channel_name}`",
 	"music.leave.fail": ":x: Couldn't leave",
+	"music.pause.success": ":white_check_mark: Paused",
+	"music.resume.success": ":white_check_mark: Resumed",
 
 	"nia.ping": "Pong!",
-	"nia.invite": "Here's the link:\n${inviteURL}",
+	"nia.invite": "Here's the link!",
 	"nia.setlang.success": ":white_check_mark: Changed the languag to `${lang}`",
-	"nia.setlang.fail": ":x: Couldn't change the language to `${lang}`"
+	"nia.setlang.fail.languageNotSupported": ":x: Couldn't change the language to `${lang}`"
 }

@@ -1,7 +1,6 @@
 require(`rootpath`)();
 const Command = require(`src/js/structures/command.js`);
 
-
 class ServerAvatar extends Command {
 	constructor(text) {
 		super(text);
@@ -13,6 +12,5 @@ class ServerAvatar extends Command {
 		this.messageSender.sendChannel({ file: message.guild.iconURL });
 	}
 }
-
 
 module.exports = ServerAvatar;

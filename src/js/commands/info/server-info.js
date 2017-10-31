@@ -2,7 +2,6 @@ require(`rootpath`)();
 const Discord = require(`discord.js`);
 const Command = require(`src/js/structures/command.js`);
 
-
 class ServerInfo extends Command {
 	constructor(text) {
 		super(text);
@@ -14,6 +13,5 @@ class ServerInfo extends Command {
 		
 	}
 }
-
 
 module.exports = ServerInfo;

@@ -3,19 +3,20 @@ const Command = require(`src/js/structures/command.js`);
 
 
 class TextResponse extends Command {
-	constructor(text) {
-		super(text);
-		this.textPath = undefined;
+	constructor(any) {
+		super(any);
 	}
 
 	apply(any) {
 		try {
-			this.messageSender.sendChannel(this.texter.getText(this.textPath));			
+			let content = ``;
+			if (this.textPath) content += this.texter.getText(this.textPath) + `\n`;		
+			if (this.url) content += this.url;
+			if (content != ``) this.messageSender.sendChannel(content);
 		} catch (error) {
-			this.messageSender.sendChannel(this.texter.getText(`generic.wrongPath`));
+			console.error(error);
 		}
 	}
 }
-
 
 module.exports = TextResponse;

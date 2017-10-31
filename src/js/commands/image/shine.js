@@ -1,7 +1,6 @@
 require(`rootpath`)();
 const ImageResponse = require(`src/js/structures/image-response.js`);
 
-
 class Shine extends ImageResponse {
 	constructor(text) {
 		super(text);
@@ -10,6 +9,5 @@ class Shine extends ImageResponse {
 		this.imageURL = `https://media.discordapp.net/attachments/321605040538386453/370441433791987712/ygeoWFc.png`;
 	}
 }
-
 
 module.exports = Shine;

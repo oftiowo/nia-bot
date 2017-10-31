@@ -1,7 +1,6 @@
 require(`rootpath`)();
 const ImageResponse = require(`src/js/structures/image-response.js`);
 
-
 class Xd extends ImageResponse {
 	constructor(text) {
 		super(text);
@@ -10,6 +9,5 @@ class Xd extends ImageResponse {
 		this.imageURL = `https://cdn.discordapp.com/attachments/367071077219696641/367124874105323542/079.gif`;
 	}
 }
-
 
 module.exports = Xd;

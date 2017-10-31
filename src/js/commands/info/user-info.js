@@ -1,7 +1,6 @@
 require(`rootpath`)();
 const Command = require(`src/js/structures/command.js`);
 
-
 class UserInfo extends Command {
 	constructor(text) {
 		super(text);
@@ -25,15 +24,14 @@ class UserInfo extends Command {
 		}
 
 		let template = this.texter.getTemplate(`user-info`);
-		template.setProperty(`user.tag`, user.tag);
-		template.setProperty(`guildMember.nickname`, guildMember.nickname);
-		template.setProperty(`user.avatarURL`, user.avatarURL);
-		template.setProperty(`user.createdAt`, user.createdAt.toDateString());
-		template.setProperty(`guildMember.joinedAt`, guildMember.joinedAt.toDateString());
-		template.setProperty(`guild.name`, message.guild.name);
+		template.setProperty(`user_tag`, user.tag);
+		template.setProperty(`guildMember_nickname`, guildMember.nickname);
+		template.setProperty(`user_avatarURL`, user.avatarURL);
+		template.setProperty(`user_createdAt`, user.createdAt.toDateString());
+		template.setProperty(`guildMember_joinedAt`, guildMember.joinedAt.toDateString());
+		template.setProperty(`guild_name`, message.guild.name);
 		this.messageSender.sendChannel(template.toMessageOptions());
 	}
 }
-
 
 module.exports = UserInfo;

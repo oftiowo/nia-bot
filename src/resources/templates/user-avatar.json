@@ -1,11 +1,11 @@
 { 
 	"embed": {
 		"author": {
-			"name": "${user.username}",
-			"icon_url": "${user.avatarURL}"
+			"name": "${user_username}",
+			"icon_url": "${user_avatarURL}"
 		},
 		"image": {
-			"url": "${user.avatarURL}"
+			"url": "${user_avatarURL}"
 		}
 	}
 }

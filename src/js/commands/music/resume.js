@@ -1,16 +1,16 @@
 require(`rootpath`)();
 const Command = require(`src/js/structures/command.js`);
 
-class Skip extends Command {
+class Resume extends Command {
 	constructor(any) {
 		super(any);
-		this.command = `skip`;
+		this.command = `resume`;
 		this.category = `music`;
 	}
 
-	apply({ argument }) {
+	apply(any) {
 		
 	}
 }
 
-module.exports = Skip;
+module.exports = Resume;

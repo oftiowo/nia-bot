@@ -1,7 +1,6 @@
 require(`rootpath`)();
 const Say = require(`src/js/commands/fun/say.js`);
 
-
 class Sayd extends Say {
 	constructor(any) {
 		super(any);
@@ -14,6 +13,5 @@ class Sayd extends Say {
 		super.apply(desc);
 	}
 }
-
 
 module.exports = Sayd;

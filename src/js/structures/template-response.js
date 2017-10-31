@@ -3,8 +3,8 @@ const Command = require(`src/js/structures/command.js`);
 
 
 class TextResponse extends Command {
-	constructor(text) {
-		super(text);
+	constructor(any) {
+		super(any);
 		this.templateName = undefined;
 	}
 
@@ -16,6 +16,5 @@ class TextResponse extends Command {
 		this.messageSender.sendChannel(this.messageOptions);
 	}
 }
-
 
 module.exports = TextResponse;

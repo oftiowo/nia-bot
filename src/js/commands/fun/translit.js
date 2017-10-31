@@ -1,7 +1,6 @@
 require(`rootpath`)();
 const Command = require(`src/js/structures/command.js`);
 
-
 class Translit extends Command {
 	constructor(any) {
 		super(any);
@@ -124,6 +123,5 @@ class Translit extends Command {
 		});
 	}
 }
-
 
 module.exports = Translit;

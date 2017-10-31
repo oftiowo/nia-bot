@@ -1,7 +1,6 @@
 require(`rootpath`)();
 const Command = require(`src/js/structures/command.js`);
 
-
 class Setlang extends Command {
 	constructor(text) {
 		super(text);
@@ -10,7 +9,7 @@ class Setlang extends Command {
 	}
 
 	apply({ argument }) {
-		if (argument === undefined) this.messageSender.sendChannel(this.text[`textgeneric.noArgumentsPassed`]);
+		if (argument === undefined) this.messageSender.sendChannel(this.text[`textgeneric.noArgumentsProvided`]);
 		let lang = argument.split(` `, 1)[0];
 		try {
 			this.commandManager.setLang(lang);			
@@ -26,6 +25,5 @@ class Setlang extends Command {
 		}
 	}
 }
-
 
 module.exports = Setlang;

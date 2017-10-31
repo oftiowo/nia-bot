@@ -1,7 +1,6 @@
 require(`rootpath`)();
 const Esay = require(`src/js/commands/fun/esay.js`);
 
-
 class Esayd extends Esay {
 	constructor(any) {
 		super(any);
@@ -14,6 +13,5 @@ class Esayd extends Esay {
 		super.apply(desc);
 	}
 }
-
 
 module.exports = Esayd;

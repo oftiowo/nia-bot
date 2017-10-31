@@ -9,5 +9,4 @@ class ChannelFilter {
 	}
 }
 
-
 module.exports = ChannelFilter;

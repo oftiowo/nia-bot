@@ -1,7 +1,6 @@
 require(`rootpath`)();
 const Command = require(`src/js/structures/command.js`);
 
-
 class Echo extends Command {
 	constructor(text) {
 		super(text);
@@ -16,6 +15,5 @@ class Echo extends Command {
 		this.messageSender.sendChannel(response);
 	}
 }
-
 
 module.exports = Echo;

@@ -1,7 +1,6 @@
 require(`rootpath`)();
 const Command = require(`src/js/structures/command.js`);
 
-
 class UserAvatar extends Command {
 	constructor(text) {
 		super(text);
@@ -25,11 +24,10 @@ class UserAvatar extends Command {
 		}
 
 		let template = this.texter.getTemplate(`user-avatar`);
-		template.setProperty(`user.username`, user.username);
-		template.setProperty(`user.avatarURL`, user.avatarURL);
+		template.setProperty(`user_username`, user.username);
+		template.setProperty(`user_avatarURL`, user.avatarURL);
 		this.messageSender.sendChannel(template.toMessageOptions());
 	}
 }
-
 
 module.exports = UserAvatar;

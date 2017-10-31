@@ -2,8 +2,7 @@ require(`rootpath`)();
 const Discord = require(`discord.js`);
 const Glob = require(`glob`);
 const Path = require(`path`);
-const auth = require(`src/js/auth.json`);
-
+const auth = require(`auth.json`);
 
 class Nia {
 	constructor() {
@@ -11,6 +10,8 @@ class Nia {
 
 		this.reloadModules();
 		this.context.commandManager.reloadCommands(this.context);
+		this.context.musicManager.voiceDevice = this.context.voiceDevice;
+		this.context.musicManager.messageSender = this.context.voiceDevice;
 	}
 
 	reloadModules() {
@@ -46,7 +47,6 @@ class Nia {
 		}
 	}
 }
-
 
 const nia = new Nia();
 nia.run();

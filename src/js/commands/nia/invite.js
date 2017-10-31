@@ -1,21 +1,14 @@
 require(`rootpath`)();
-const Command = require(`src/js/structures/command.js`);
+const TextResponse = require(`src/js/structures/text-response.js`);
 
-
-class Invite extends Command {
+class Invite extends TextResponse {
 	constructor(text) {
 		super(text);
 		this.command = `invite`;
 		this.category = `nia`;
-	}
-
-	apply(any) {
-		this.messageSender.sendChannel(this.texter.getText(
-			`nia.invite`,
-			{ key: `inviteURL`, value: `https://discordapp.com/oauth2/authorize?&client_id=371891599438774272&scope=bot&permissions=213424050` }
-		));
+		this.textPath = `nia.invite`;
+		this.url = `https://discordapp.com/oauth2/authorize?&client_id=371891599438774272&scope=bot&permissions=213424050`;
 	}
 }
-
 
 module.exports = Invite;

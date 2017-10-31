@@ -1,7 +1,6 @@
 require(`rootpath`)();
 const TextResponse = require(`src/js/structures/text-response.js`);
 
-
 class Ping extends TextResponse {
 	constructor(text) {
 		super(text);
@@ -10,6 +9,5 @@ class Ping extends TextResponse {
 		this.textPath = `nia.ping`;
 	}
 }
-
 
 module.exports = Ping;

@@ -1,7 +1,6 @@
 const Glob = require(`glob`);
 const Path = require(`path`);
 
-
 class CommandManager {
 	reloadCommands(context) {
 		this.prefixCommands = {};
@@ -25,6 +24,5 @@ class CommandManager {
 		return undefined;
 	}
 }
-
 
 module.exports = CommandManager;

@@ -55,5 +55,4 @@ class MessageParser {
 	}
 }
 
-
 module.exports = MessageParser;

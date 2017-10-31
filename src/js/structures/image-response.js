@@ -3,8 +3,8 @@ const Command = require(`src/js/structures/command.js`);
 
 
 class ImageResponse extends Command {
-	constructor(text) {
-		super(text);
+	constructor(any) {
+		super(any);
 		this.imageURL = undefined;
 	}
 
@@ -12,6 +12,5 @@ class ImageResponse extends Command {
 		this.messageSender.sendChannel({ file: this.imageURL });
 	}
 }
-
 
 module.exports = ImageResponse;

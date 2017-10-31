@@ -1,7 +1,6 @@
 require(`rootpath`)();
 const Command = require(`src/js/structures/command.js`);
 
-
 class Esay extends Command {
 	constructor(any) {
 		super(any);
@@ -53,6 +52,5 @@ class Esay extends Command {
 		}));
 	}
 }
-
 
 module.exports = Esay;

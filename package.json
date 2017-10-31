@@ -8,8 +8,16 @@
   "dependencies": {
     "discord.js": "^11.2.1",
     "ffmpeg": "0.0.4",
-    "glob": "7.1.2",
+    "glob": "^7.1.2",
+    "lame": "^1.2.4",
     "node-opus": "^0.2.7",
-    "rootpath": "0.1.2"
+    "ogg": "^1.2.5",
+    "request": "^2.83.0",
+    "rootpath": "^0.1.2",
+    "stream-url-node": "^0.1.1",
+    "video-source-url": "^0.1.0",
+    "ws": "^3.2.0",
+    "youtube-dl": "^1.12.2",
+    "ytdl": "^0.8.0"
   }
 }

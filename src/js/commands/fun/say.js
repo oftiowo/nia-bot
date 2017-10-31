@@ -1,7 +1,6 @@
 require(`rootpath`)();
 const Command = require(`src/js/structures/command.js`);
 
-
 class Say extends Command {
 	constructor(any) {
 		super(any);
@@ -13,6 +12,5 @@ class Say extends Command {
 		this.messageSender.sendChannel(argument);
 	}
 }
-
 
 module.exports = Say;
