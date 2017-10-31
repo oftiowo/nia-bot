@@ -1,3 +1,8 @@
 node_modules
-src/js/auth.json
+src/resources/audio
+src/resources/.DS_Store
+src/.DS_Store
+src/js/.DS_Store
+.DS_Store
+auth.json
 npm-debug.log
